@@ -33,7 +33,7 @@ import pytok.yamltok as yaml
 
 def getRunNumber(filename):
 	'''
-	@return: run number, extracted from mDST filename
+	@return: run number, extracted from uDST filename
 	'''
 	runnbr = None;
 	parsed = re.findall("-([0-9]+)-[0-9]-[0-9]\.root", filename)
@@ -47,7 +47,7 @@ def getRunNumber(filename):
 
 def getSlot(filename):
 	'''
-	@return: run number, extracted from mDST filename
+	@return: run number, extracted from uDST filename
 	'''
 	slot = None;
 	parsed = re.findall("-[0-9]+-([0-9]-[0-9])\.root", filename)
@@ -291,7 +291,7 @@ def main():
 		print "Cannot read config"
 		sys.exit(1)
 
-		
+
 	options.configfile = local_configfile
 
 
@@ -309,7 +309,7 @@ def main():
 			out_folder_root = os.path.join( out_folder_root, os.path.basename( os.path.dirname( in_files[0] ) ) );
 		if not os.path.isdir(out_folder_root):
 			os.makedirs( out_folder_root );
-		out_file = os.path.join( out_folder_root, "mDST-{0}-{1}-{2}.root.{3:03d}".format(run_first_file, run_last_file, slot, i_job) )
+		out_file = os.path.join( out_folder_root, "nDST-{0}-{1}-{2}.root.{3:03d}".format(run_first_file, run_last_file, slot, i_job) )
 		out_files.append( out_file );
 
 		cmd = "echo \"Start: $(date)\""
